@@ -1,21 +1,28 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import Explore from './pages/Explore'
+import SignIn from './pages/SignIn'
+import SignUp from './pages/SignUp'
+import ForgotPassword from './pages/ForgotPassword'
+import Offers from './pages/Offers'
+import Profile from './pages/Profile'
 
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React</h2>
-        </div>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-      </div>
-    );
-  }
+function App() {
+  return (
+    <div>
+      <Router>
+        <Routes>
+          <Route path='/' element={<Explore />} />
+          <Route path='/offers' element={<Offers />} />
+          <Route path='/profile' element={<SignIn />} />
+          <Route path='/sign-in' element={<SignIn />} />
+          <Route path='/sign-up' element={<SignUp />} />
+          <Route path='/forgot-password' element={<ForgotPassword />} />
+        </Routes>
+        {/** Navbar */}
+      </Router>
+    </div>
+  )
 }
 
-export default App;
+export default App
